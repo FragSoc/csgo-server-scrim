@@ -1,0 +1,9 @@
+version: "3"
+services: 
+  csgo-scrim:
+    build: .
+    volumes: 
+      - ./csgo-data:/home/steam/csgo-dedicated/
+    network_mode: "host"
+    environment: 
+      - SRCDS_TOKEN=96F8D40BE77ACA38029B5CF6B78917FF
