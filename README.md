@@ -1,4 +1,4 @@
-A docker image for running a dedicated server for the game [CS:GO](https://blog.counter-strike.net/). Configured to use the [Get5](https://github.com/splewis/get5/) plugin alongside [Metamod:Source](https://www.sourcemm.net/) and [Sourcemod](https://www.sourcemod.net/) to host a quick setup scrim server.
+A docker image for running a dedicated server for the game [CS:GO](https://blog.counter-strike.net/). Configured to use the [Get5](https://github.com/splewis/get5/) plugin alongside [Metamod:Source](https://www.sourcemm.net/) and [Sourcemod](https://www.sourcemod.net/) to host a quick setup scrim server. This is a modified version of [CM2Walki's](https://github.com/CM2Walki/CSGO) Dockerfile.
 
 # How to use this image
 ## Simple usage (recommended)
