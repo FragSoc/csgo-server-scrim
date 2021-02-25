@@ -2,8 +2,10 @@ version: "3"
 services: 
   csgo-scrim:
     build: .
+    ports: 
+      - "27015:27015"
     volumes: 
       - ./csgo-data:/home/steam/csgo-dedicated/
     network_mode: "host"
     environment: 
-      - SRCDS_TOKEN=**YOUR_SOURCE_TOKEN**
+      - SRCDS_TOKEN=F358936CE79360F41A3ABB4CA31DB13A

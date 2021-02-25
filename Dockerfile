@@ -10,6 +10,7 @@ ENV STEAMAPPDIR "${HOMEDIR}/${STEAMAPP}-dedicated"
 # Copy across template config and entry script
 COPY entry.sh ${HOMEDIR}/entry.sh
 COPY custom_server_template.cfg ${HOMEDIR}/custom_server_template.cfg
+COPY match.cfg ${HOMEDIR}/match.cfg
 
 # Create autoupdate config
 # Add entry script & ESL config
@@ -31,7 +32,7 @@ RUN set -x \
 		echo 'quit'; \
 	   } > "${HOMEDIR}/${STEAMAPP}_update.txt" \
 	&& chmod +x "${HOMEDIR}/entry.sh" \
-	&& chown -R "${USER}:${USER}" "${HOMEDIR}/entry.sh" "${HOMEDIR}/custom_server_template.cfg" "${STEAMAPPDIR}" "${HOMEDIR}/${STEAMAPP}_update.txt" \
+	&& chown -R "${USER}:${USER}" "${HOMEDIR}/entry.sh" "${HOMEDIR}/custom_server_template.cfg" "${HOMEDIR}/match.cfg" "${STEAMAPPDIR}" "${HOMEDIR}/${STEAMAPP}_update.txt" \
 	&& rm -rf /var/lib/apt/lists/* 
 	
 ENV SRCDS_PORT=27015 \
