@@ -23,6 +23,7 @@ if [ ! -f "${STEAMAPPDIR}/${STEAMAPP}/cfg/sourcemod/get5.cfg" ];
 		wget -O latest-get5.zip https://github.com/splewis/get5/releases/download/0.7.2/get5_0.7.2.zip
 		unzip latest-get5.zip -d "${STEAMAPPDIR}/${STEAMAPP}/"
 		cp -r "${STEAMAPPDIR}/${STEAMAPP}/get5"/* "${STEAMAPPDIR}/${STEAMAPP}/"
+		chmod -R 777 "${STEAMAPPDIR}/${STEAMAPP}/"
 		rm -rf latest-get5.zip "${STEAMAPPDIR}/${STEAMAPP}/get5/"
 
 		# Replace current server.cfg with template file
