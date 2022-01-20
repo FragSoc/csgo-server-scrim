@@ -6,4 +6,5 @@ services:
       - ./csgo-data:/home/steam/csgo-dedicated/
     network_mode: "host"
     environment: 
-      - SRCDS_TOKEN=**YOUR_SOURCE_TOKEN**
+      - SRCDS_TOKEN=309E76122D3C7522154AC7513C51984E
+      - SCRIM=true # Set false for a team structured config
