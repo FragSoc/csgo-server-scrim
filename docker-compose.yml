@@ -7,4 +7,6 @@ services:
     network_mode: "host"
     environment: 
       - SRCDS_TOKEN=309E76122D3C7522154AC7513C51984E
+      - SRCDS_PORT=27015
+      - SRCDS_TV_PORT=27020
       - SCRIM=true # Set false for a team structured config
