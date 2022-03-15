@@ -61,6 +61,7 @@ bash "${STEAMAPPDIR}/srcds_run" -game "${STEAMAPP}" -console -autoupdate \
 			-maxplayers_override "14" \
 			+game_type "0" \
 			+game_mode "1" \
+			+sv_game_mode_flags "${MATCH_LENGTH}" \
 			+mapgroup "mg_active" \
 			+map "de_mirage" \
 			+sv_region "3" \
