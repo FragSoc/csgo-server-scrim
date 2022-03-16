@@ -9,5 +9,5 @@ services:
       - SRCDS_TOKEN=309E76122D3C7522154AC7513C51984E
       - SRCDS_PORT=27015
       - SRCDS_TV_PORT=27020
-      - MATCH_LENGTH=0 # Set 0 for standard competitive and 32 for short match
+      - MATCH_LENGTH=normal # Set normal for standard competitive and short for short match
       - SCRIM=true # Set false for a team structured config
