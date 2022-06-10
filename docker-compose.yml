@@ -12,7 +12,7 @@ services:
       - SRCDS_TV_PORT=27020
       - SCRIM=true # Set false for a team structured config
 
-  scrim1:
+  scrim2:
     build: .
     image: fragsoc/csgo-server-scrim
     volumes:
