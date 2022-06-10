@@ -20,9 +20,9 @@ COPY get5_configs ${HOMEDIR}/get5_configs
 RUN set -x \
 	&& apt-get update \
 	&& apt-get install -y --no-install-recommends --no-install-suggests \
-		wget=1.20.1-1.1 \
-		ca-certificates=20200601~deb10u2 \
-		lib32z1=1:1.2.11.dfsg-1 \
+		wget \
+		ca-certificates \
+		lib32z1 \
 		unzip \
 	&& mkdir -p "${STEAMAPPDIR}" \
 	&& { \
@@ -35,8 +35,8 @@ RUN set -x \
 	   } > "${HOMEDIR}/${STEAMAPP}_update.txt" \
 	&& chmod +x "${HOMEDIR}/entry.sh" \
 	&& chown -R "${USER}:${USER}" "${HOMEDIR}/entry.sh" "${HOMEDIR}/get5_configs" "${HOMEDIR}/custom_server_template.cfg" "${HOMEDIR}/structured_match_config.cfg" "${HOMEDIR}/scrim_match_config.cfg" "${STEAMAPPDIR}" "${HOMEDIR}/${STEAMAPP}_update.txt" \
-	&& rm -rf /var/lib/apt/lists/* 
-	
+	&& rm -rf /var/lib/apt/lists/*
+
 ENV SRCDS_PORT=27015 \
 	SRCDS_TV_PORT=27020 \
 	SRCDS_CLIENT_PORT=27005 \
@@ -56,4 +56,3 @@ VOLUME ${STEAMAPPDIR}
 WORKDIR ${HOMEDIR}
 
 CMD ["bash", "entry.sh"]
-
