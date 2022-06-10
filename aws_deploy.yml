@@ -1,0 +1,57 @@
+- hosts: all
+  roles:
+    - role: geerlingguy.docker
+      docker_install_compose: true
+      become: true
+    - role: geerlingguy.pip
+      pip_install_packages:
+        - name: docker
+        - name: docker-compose
+      become: true
+
+- hosts: all
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: install prereqs
+      apt:
+        name: git
+        state: present
+    - name: install docker python module
+      pip:
+        name: docker
+        state: present
+
+- hosts: all
+  gather_facts: false
+
+  vars:
+    root_folder: "~/csgo-scrims"
+
+  tasks:
+    - name: get git repo
+      git:
+        repo: https://github.com/FragSoc/csgo-server-scrim.git
+        dest: "{{ root_folder }}"
+        version: "feat/ansible"
+    - name: create data directories
+      file:
+        path: "{{ root_folder }}/{{ item }}"
+        mode: "0777"
+        state: directory
+      with_items:
+        - "csgo-data1"
+        - "csgo-data2"
+
+- hosts: all
+  become: true
+
+  vars:
+    root_folder: "~/csgo-scrims"
+
+  tasks:
+    - name: run servers
+      docker_compose:
+        project_src: "{{ root_folder }}"
+        state: present
