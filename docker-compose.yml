@@ -4,6 +4,7 @@ x-defaults: &defaults
     build: .
     image: fragsoc/csgo-server-scrim
     network_mode: "host"
+    restart: unless_stopped
 
 services:
   scrim1:
