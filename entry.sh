@@ -1,4 +1,7 @@
-mkdir -p "${STEAMAPPDIR}" || true  
+#!/usr/bin/sh
+set -eux
+
+mkdir -p "${STEAMAPPDIR}" || true
 
 bash "${STEAMCMDDIR}/steamcmd.sh" +login anonymous \
 				+force_install_dir "${STEAMAPPDIR}" \
@@ -10,10 +13,10 @@ if [ ! -f "${STEAMAPPDIR}/${STEAMAPP}/cfg/sourcemod/get5.cfg" ];
 	then
 		# Download & extract the config
 		wget -qO- "${DLURL}/master/etc/cfg.tar.gz" | tar xvzf - -C "${STEAMAPPDIR}/${STEAMAPP}"
-		
+
 		# Download metamod
 		LATESTMM=$(wget -qO- https://mms.alliedmods.net/mmsdrop/"${METAMOD_VERSION}"/mmsource-latest-linux)
-		wget -qO- https://mms.alliedmods.net/mmsdrop/"${METAMOD_VERSION}"/"${LATESTMM}" | tar xvzf - -C "${STEAMAPPDIR}/${STEAMAPP}"	
+		wget -qO- https://mms.alliedmods.net/mmsdrop/"${METAMOD_VERSION}"/"${LATESTMM}" | tar xvzf - -C "${STEAMAPPDIR}/${STEAMAPP}"
 
 		# Download sourcemod
 		LATESTSM=$(wget -qO- https://sm.alliedmods.net/smdrop/"${SOURCEMOD_VERSION}"/sourcemod-latest-linux)
