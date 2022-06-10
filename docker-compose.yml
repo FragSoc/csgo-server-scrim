@@ -1,11 +1,15 @@
 version: "3"
-services:
-  scrim1:
+
+x-defaults: &defaults
     build: .
     image: fragsoc/csgo-server-scrim
+    network_mode: "host"
+
+services:
+  scrim1:
+    <<: *defaults
     volumes:
       - ./csgo-data1:/home/steam/csgo-dedicated/
-    network_mode: "host"
     environment:
       - SRCDS_TOKEN=3C1836105A719D05E6E2377A823F66E1
       - SRCDS_PORT=27015
@@ -13,11 +17,9 @@ services:
       - SCRIM=true # Set false for a team structured config
 
   scrim2:
-    build: .
-    image: fragsoc/csgo-server-scrim
+    <<: *defaults
     volumes:
       - ./csgo-data1:/home/steam/csgo-dedicated/
-    network_mode: "host"
     environment:
       - SRCDS_TOKEN=5BA590C6B96839FC248667027F2E8D79
       - SRCDS_PORT=27016
