@@ -46,6 +46,13 @@ else
 	sed -i -e 's/get5_kick_when_no_match_loaded "0"/get5_kick_when_no_match_loaded "1"/g' "${STEAMAPPDIR}/${STEAMAPP}/cfg/sourcemod/get5.cfg"
 fi
 
+if [ $MATCH_LENGTH == 'short' ]
+then
+	echo "Configuring for SHORT match"
+	# Alter values in Get5 config to be configured for short match
+	sed -i -e 's/mp_maxrounds 30/mp_maxrounds 16/g' "${STEAMAPPDIR}/${STEAMAPP}/cfg/get5/live.cfg"
+fi
+
 # Believe it or not, if you don't do this srcds_run shits itself
 cd ${STEAMAPPDIR}
 
